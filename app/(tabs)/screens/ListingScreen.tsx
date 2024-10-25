@@ -19,9 +19,8 @@ import { RootState } from '../../redux/store';
 import { AxiosResponse } from 'axios';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-// Get screen dimensions
 const { width } = Dimensions.get('window');
-const numColumns = width > 600 ? 3 : 2; // Use 3 columns for tablets
+const numColumns = width > 600 ? 3 : 2; 
 
 interface Movie {
   id: number;
@@ -91,10 +90,12 @@ const ListingScreen: React.FC = () => {
 
   const renderMovieItem = ({ item }: { item: Movie }) => (
     <MovieCard
-    //@ts-ignore
       movie={item}
+      title={item.title}
+      posterUrl={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+
       isShortlisted={shortlistedMovies.includes(item.id)}
-      onShortlistPress={() => dispatch(toggleShortlist(item.id))}
+      onShortlistToggle={() => dispatch(toggleShortlist(item.id))}
     />
   );
 

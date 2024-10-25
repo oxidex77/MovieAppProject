@@ -2,11 +2,18 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+interface Movie {
+  id: number;
+  poster_path: string;
+  title: string;
+}
+
 interface MovieCardProps {
   title: string;
   posterUrl: string;
   isShortlisted: boolean;
   onShortlistToggle: () => void;
+  movie: Movie;
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({

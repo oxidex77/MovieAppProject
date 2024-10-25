@@ -36,6 +36,7 @@ const ShortlistedMoviesScreen: React.FC = () => {
         keyExtractor={(movie) => movie.id.toString()}
         renderItem={({ item }) => (
           <MovieCard
+            movie={item}
             title={item.title}
             posterUrl={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
             isShortlisted={true}
